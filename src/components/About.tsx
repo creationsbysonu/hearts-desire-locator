@@ -1,133 +1,87 @@
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Code2, Palette, Rocket, Zap } from 'lucide-react';
-
-const skills = [
-  'React', 'TypeScript', 'Three.js', 'Node.js', 'Python', 'WebGL',
-  'Framer Motion', 'Tailwind CSS', 'Next.js', 'GraphQL', 'Docker', 'AWS'
-];
-
-const features = [
-  {
-    icon: Code2,
-    title: 'Full-Stack Development',
-    description: 'End-to-end web applications with modern technologies and best practices.'
-  },
-  {
-    icon: Palette,
-    title: 'UI/UX Design',
-    description: 'Beautiful, intuitive interfaces that users love to interact with.'
-  },
-  {
-    icon: Rocket,
-    title: '3D Experiences',
-    description: 'Immersive 3D worlds and interactive experiences using Three.js and WebGL.'
-  },
-  {
-    icon: Zap,
-    title: 'Performance',
-    description: 'Optimized, fast-loading applications with smooth animations and interactions.'
-  }
-];
+import { Card, CardContent } from '@/components/ui/card';
+import { Code, Server, Brain } from 'lucide-react';
 
 export const About = () => {
+  const skills = [
+    {
+      icon: Code,
+      title: "Front-End Development",
+      description: "Expertise in crafting pixel-perfect interfaces using modern tools like React, Tailwind CSS, and more."
+    },
+    {
+      icon: Server,
+      title: "Back-End Development",
+      description: "Proficient in building robust server-side logic and APIs using Node.js, Express, and MongoDB."
+    },
+    {
+      icon: Brain,
+      title: "Problem Solving",
+      description: "Analytical problem-solver with experience in optimizing performance and tackling complex challenges."
+    }
+  ];
+
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-background to-secondary/20">
+    <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
-            About Me
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex-shrink-0"
+            >
+              <img 
+                src="/lovable-uploads/e54e3e42-b3f9-461f-9c58-fd35a01da97a.png" 
+                alt="Sonu Gupta"
+                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-glow-primary"
+              />
+            </motion.div>
+            <div className="text-left">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-cosmic bg-clip-text text-transparent mb-4">
+                Sonu Gupta
+              </h2>
+              <h3 className="text-2xl font-semibold text-accent mb-2">Full Stack Developer</h3>
+              <p className="text-lg text-muted-foreground mb-2">BE in Computer Engineering</p>
+              <p className="text-muted-foreground">A junior at IOE Purwanchal Campus, Dharan</p>
+            </div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-cosmic bg-clip-text text-transparent mb-6">
+            About
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm a passionate developer who loves bringing ideas to life through code. 
-            With expertise in modern web technologies and 3D graphics, I create digital 
-            experiences that are both beautiful and functional.
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            I am a dedicated and passionate developer with a keen eye for detail and a commitment to delivering high-quality, user-focused solutions. My expertise lies in creating modern, responsive, and visually appealing applications that seamlessly integrate functionality with aesthetics. Whether it's front-end design, back-end logic, or both, I strive to bring ideas to life through code.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-border/50">
-              <h3 className="text-2xl font-bold text-foreground mb-4">My Journey</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Started as a curious kid tinkering with HTML, now crafting complex 
-                3D web experiences. I believe in the power of technology to tell 
-                stories and create meaningful connections between users and digital products.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, 
-                contributing to open-source projects, or creating digital art.
-              </p>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-4 p-4 rounded-lg bg-card/30 backdrop-blur-sm border border-border/30"
-              >
-                <div className="p-2 rounded-lg bg-gradient-primary">
-                  <feature.icon className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:shadow-cosmic transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <skill.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
+                  <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
+                  <p className="text-muted-foreground">{skill.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-2xl font-bold text-foreground mb-8">Skills & Technologies</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Badge 
-                  variant="secondary" 
-                  className="px-4 py-2 text-sm bg-gradient-accent text-accent-foreground hover:shadow-glow-accent transition-all duration-300"
-                >
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

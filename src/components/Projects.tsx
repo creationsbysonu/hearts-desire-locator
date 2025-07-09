@@ -6,40 +6,28 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: '3D Portfolio Website',
-    description: 'Interactive portfolio showcasing 3D graphics, smooth animations, and modern web technologies.',
-    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=400&fit=crop',
-    technologies: ['React', 'Three.js', 'TypeScript', 'Framer Motion'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true
+    title: "Project E-Commerce",
+    description: "Creating a complete ecommerce site using MERN stack where users can create account, purchase product, add reviews, make payment",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=400&h=300",
+    liveUrl: "#",
+    githubUrl: "#"
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false
+    title: "Project Portfolio",
+    description: "A comprehensive portfolio website showcasing modern web development skills with 3D elements and interactive design.",
+    technologies: ["React", "TypeScript", "Three.js", "Tailwind CSS"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400&h=300",
+    liveUrl: "#",
+    githubUrl: "#"
   },
   {
-    title: 'AR Visualization Tool',
-    description: 'Augmented reality application for visualizing 3D models in real-world environments.',
-    image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600&h=400&fit=crop',
-    technologies: ['React Native', 'ARKit', 'WebRTC', 'Three.js'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true
-  },
-  {
-    title: 'Data Visualization Dashboard',
-    description: 'Interactive dashboard for complex data analysis with real-time updates and custom charts.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-    technologies: ['React', 'D3.js', 'Python', 'FastAPI'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false
+    title: "Notes and Study Materials",
+    description: "A comprehensive platform for organizing and sharing study materials with interactive features for students.",
+    technologies: ["React", "Node.js", "MySQL", "Express"],
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=400&h=300",
+    liveUrl: "#",
+    githubUrl: "#"
   }
 ];
 
@@ -54,82 +42,57 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-6">
-            Featured Projects
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-cosmic bg-clip-text text-transparent mb-6">
+            My Works
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A collection of my recent work showcasing different technologies, 
-            design approaches, and problem-solving techniques.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Here are some of the projects I have worked on. I strive to build modern, scalable, and user-friendly applications. Explore my work and learn more about what I do.
           </p>
         </motion.div>
 
-        <div className="grid gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className={`overflow-hidden group ${
-                project.featured 
-                  ? 'bg-gradient-to-br from-card/80 to-primary/5 border-primary/20' 
-                  : 'bg-card/50 border-border/50'
-              } backdrop-blur-sm`}>
-                <div className={`grid ${project.featured ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6 p-6`}>
-                  <div className={project.featured ? 'order-2 md:order-1' : 'order-2'}>
-                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:shadow-cosmic transition-all duration-300 overflow-hidden">
+                <div className="aspect-video bg-gradient-primary relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span 
+                        key={tech}
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                  
-                  <div className={`space-y-4 ${
-                    project.featured ? 'order-1 md:order-2' : 'order-1 md:col-span-2'
-                  }`}>
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-2xl font-bold text-foreground">{project.title}</h3>
-                      {project.featured && (
-                        <Badge className="bg-gradient-primary text-primary-foreground">
-                          Featured
-                        </Badge>
-                      )}
-                    </div>
-                    
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="border-accent/30 text-accent">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    
-                    <div className="flex gap-3 pt-2">
-                      <Button 
-                        variant="default" 
-                        size="sm" 
-                        className="bg-gradient-primary hover:shadow-glow-primary transition-all duration-300"
-                      >
+                  <div className="flex gap-2">
+                    <Button size="sm" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground"
-                      >
+                        View Project
+                      </a>
+                    </Button>
+                    <Button size="sm" variant="outline" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
-                        Source
-                      </Button>
-                    </div>
+                        Code
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </Card>

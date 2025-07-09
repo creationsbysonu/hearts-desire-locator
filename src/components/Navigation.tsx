@@ -6,7 +6,10 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Works', href: '#projects' },
+  { label: 'Experiences', href: '#experiences' },
+  { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -42,7 +45,7 @@ export const Navigation = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Portfolio
+              Sonu Gupta
             </h1>
           </motion.div>
 

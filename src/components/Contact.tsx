@@ -9,19 +9,19 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@example.com',
-    href: 'mailto:hello@example.com'
+    value: 'sonugupta@example.com',
+    href: 'mailto:sonugupta@example.com'
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567'
+    value: '+977 98XXXXXXXX',
+    href: 'tel:+97798XXXXXXXX'
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'San Francisco, CA',
+    value: 'Dharan, Nepal',
     href: '#'
   }
 ];
@@ -38,11 +38,11 @@ export const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-cosmic bg-clip-text text-transparent mb-6">
-            Let's Work Together
+            Contact
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind? I'd love to hear about it. 
-            Let's create something amazing together.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Ready to start your next project? I'd love to hear from you. 
+            Send me a message and let's create something amazing together.
           </p>
         </motion.div>
 
